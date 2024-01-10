@@ -38,7 +38,7 @@ void *multiplyMatrices(void *arg) {
 }
 
 void writeTimeToFile(double time) {
-    FILE *file = fopen("execution_time.txt", "w");
+    FILE *file = fopen("execution_time_c_opt.txt", "w");
     if (file == NULL) {
         printf("Error opening file!\n");
         exit(1);
