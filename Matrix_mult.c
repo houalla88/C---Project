@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define N 2032  // Matrix size, can be changed
+#define N 2032  
 
-// Function to dynamically allocate a matrix
+
 int** allocateMatrix(int size) {
     int** matrix = (int**)malloc(size * sizeof(int*));
     for (int i = 0; i < size; i++) {
@@ -13,7 +13,7 @@ int** allocateMatrix(int size) {
     return matrix;
 }
 
-// Function to free a dynamically allocated matrix
+
 void freeMatrix(int** matrix, int size) {
     for (int i = 0; i < size; i++) {
         free(matrix[i]);
@@ -21,7 +21,7 @@ void freeMatrix(int** matrix, int size) {
     free(matrix);
 }
 
-// Function to multiply matrices
+
 void multiplyMatrices(int** mat1, int** mat2, int** res, int size) {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -33,7 +33,7 @@ void multiplyMatrices(int** mat1, int** mat2, int** res, int size) {
     }
 }
 
-// Function to write execution time to a file
+
 void writeTimeToFile(double time) {
     FILE *file = fopen("execution_time.txt", "w");
     if (file == NULL) {
@@ -51,7 +51,7 @@ int main() {
     mat2 = allocateMatrix(N);
     res = allocateMatrix(N);
 
-    // Initialize matrices with some values (for example, 1)
+
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             mat1[i][j] = 1;
@@ -59,17 +59,17 @@ int main() {
         }
     }
 
-    // Measure execution time
+
     clock_t start, end;
     double cpu_time_used;
     
     start = clock();
-    multiplyMatrices(mat1, mat2, res, N);  // Perform matrix multiplication
+    multiplyMatrices(mat1, mat2, res, N);  
     end = clock();
 
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
 
-    // Write execution time to a file
+
     writeTimeToFile(cpu_time_used);
 
     printf("Execution Time: %f seconds\n", cpu_time_used);

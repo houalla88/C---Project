@@ -9,7 +9,7 @@ def matrix_multiplication(n):
     print("started...")
 
     start_time = time.time()
-    # Matrix multiplication
+   
     for i in range(n):
         for j in range(n):
             for k in range(n):
@@ -19,13 +19,13 @@ def matrix_multiplication(n):
 
     return result_matrix, end_time - start_time
 
-# Define the size of the matrix (n x n)
-n = 2032  # Modify this value as needed
 
-# Performing matrix multiplication
+n = 2032  
+
+
 _, execution_time = matrix_multiplication(n)
 
-# Writing the execution time to a text file
+
 with open('C:/Users/houba/C - Project/matrix_multiplication_time.txt', 'w') as file:
     file.write(f"Execution Time for {n}x{n} Matrix Multiplication: {execution_time} seconds")
 
